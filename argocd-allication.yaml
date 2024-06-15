@@ -8,6 +8,7 @@ spec:
   source:
     sourceRepo: 'https://github.com/madeshnandu90/helm-repo'
     targetRevision: HEAD
+    path: /
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default

@@ -7,12 +7,12 @@ metadata:
 spec:
   project: default
   source:
-    sourceRepo: 'https://github.com/madeshnandu90/helm-repo'
+    sourceRepo: 'https://github.com/madeshnandu90/helm-repo-with-argocd'
     targetRevision: HEAD
-    path: argo
+    path: argocd
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: argocd
   syncPolicy: 
     automated:
       prune: true

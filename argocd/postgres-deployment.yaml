@@ -5,13 +5,7 @@ metadata:
   namespace: back-end
 spe:
   replicas: 1
-  selector:
-    matchLabels:
-      app: postgres
   template:
-    metadata:
-      labels:
-        app: postgres
     spe:
       containers:
       - name: postgres

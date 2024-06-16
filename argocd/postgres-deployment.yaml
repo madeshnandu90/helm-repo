@@ -2,11 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
-  namespace: back-end
-spe:
+  namespace: postgres
+spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
   template:
-    spe:
+    metadata:
+      labels:
+        app: postgres
+    spec:
       containers:
       - name: postgres
         image: postgres:13
@@ -14,14 +20,14 @@ spe:
         - containerPort: 5432
         env:
         - name: POSTGRES_USER
-          value: "postgres"
+          value: "admin"
         - name: POSTGRES_PASSWORD
-          value: "postgres"
+          value: "password"
         - name: POSTGRES_DB
-          value: "postgres-db"
+          value: "mydatabase"
         volumeMounts:
         - name: postgres-storage
           mountPath: /var/lib/postgresql/data
-    volumes:
-    - name: postgres-storage
-      emptyDir: {}           
+      volumes:
+      - name: postgres-storage
+        emptyDir: {}
